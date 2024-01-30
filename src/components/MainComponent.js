@@ -32,7 +32,6 @@ class MainComponent extends Component {
         <Routes>
           <Route path="/login" element={<AuthForm />} />
           <Route path="*" element={<Navigate to="/" />} />
-          <Route path="/hotels" element={<Hotels />} />
           <Route path="/" element={<Homepage />} />
         </Routes>
       );
