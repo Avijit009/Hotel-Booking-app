@@ -48,10 +48,14 @@ class Navigation extends Component {
                                 : 
                                 <> 
                                 <NavItem>
+                                    <Link to="/hotels" className="nav-link">Hotels</Link>
+                                </NavItem>                                 
+                                
+                                <NavItem>
                                     <Link to="/logout" className="nav-link">Logout</Link>
                                 </NavItem>                                
                                 <NavItem>
-                                    <Link to="/" className="nav-link">Your Booking</Link>
+                                    <Link to="/booking" className="nav-link">Your Booking</Link>
                                 </NavItem>
                                 </>
                                 }

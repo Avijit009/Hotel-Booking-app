@@ -74,7 +74,7 @@ class Booking extends Component {
                                 <Label>Phone Number</Label>
                                 <Input
                                     required
-                                    type="number"
+                                    type="tel"
                                     name="telnum"
                                     onChange={handleChange}
                                     value={values.telnum}

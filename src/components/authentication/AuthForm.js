@@ -16,7 +16,7 @@ class AuthForm extends Component {
     }
 
     switchModeHandler = () => {
-        this.setState({ mode: this.state.mode === "Sign Up" ? "Login" : "Sign Up" })
+        this.setState({ mode: this.state.mode === "Sign Up" ? "Sign Up" : "Login" })
     }
 
     render() {
