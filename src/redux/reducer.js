@@ -1,12 +1,11 @@
 import { combineReducers } from 'redux';
 import * as actionTypes from './actionTypes';
-import { createForms } from 'react-redux-form';
+import { reducer as formReducer } from 'redux-form'; // Importing reducer from redux-form
 import { InitialContactForm } from './form';
 
-export const authReducer = (authState = {token: null, userId: null}, action) => {
+export const authReducer = (authState = { token: null, userId: null }, action) => {
     switch (action.type) {
         case actionTypes.AUTH_SUCCESS:
-            //console.log("reducer",action.payload);
             return {
                 ...authState,
                 token: action.payload.token,
@@ -78,7 +77,6 @@ const commentReducer = (commentState = { isLoading: true, comments: [] }, action
     }
 }
 
-
 const feedbackReducer = (feedbackState = { isLoading: true, feedback: [] }, action) => {
     switch (action.type) {
         case actionTypes.LOAD_FEEDBACK:
@@ -100,13 +98,21 @@ const feedbackReducer = (feedbackState = { isLoading: true, feedback: [] }, acti
     }
 }
 
+// Define initial state for the form
+const initialFormState = InitialContactForm;
+
 export const Reducer = combineReducers({
     hotels: hotelReducer,
     comments: commentReducer,
-    ...createForms({
-        feedback: InitialContactForm
+    form: formReducer.plugin({
+        feedback: (state = initialFormState, action) => { // Using plugin to manage form state with initial state
+            switch (action.type) {
+                // Handle specific form-related actions if needed
+                default:
+                    return state;
+            }
+        }
     }),
     feedback: feedbackReducer,
-    auth : authReducer
-
+    auth: authReducer
 });

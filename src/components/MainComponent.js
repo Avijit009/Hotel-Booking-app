@@ -3,11 +3,11 @@ import Header from "./header/Header";
 import { Route, Routes } from "react-router-dom";
 import { connect } from 'react-redux';
 
-import Home from "./home/Home";
-import { auth, authCheck } from '../redux/authActionCreators';
-import Logout from "./Auth/Logout";
-import Hotels from "./Hotels/Hotels";
+import { authCheck } from '../redux/authActionCreators';
+import Hotels from './hotels/Hotels';
 import AuthForm from './authentication/AuthForm';
+import Homepage from './home/Homepage';
+import Logout from './authentication/Logout';
 
 const mapStateToProps = state => {
     return {
@@ -30,18 +30,18 @@ class MainComponent extends Component {
         if (this.props.auth.token === null) {
             routes = (
                 <Routes>
-                    <Route path="/login" component={AuthForm} />
-                    <Route path="/hotels" component = {Hotels}/>
-                    <Route path = "/" component={Home} />
+                    <Route path="/login" element={<AuthForm/>} />
+                    <Route path="/hotels" element = {<Hotels/>}/>
+                    <Route path = "/" element={<Homepage/>} />
                 </Routes>
             )
         } else {
             routes = (
                 <div>
                     <Routes>
-                        <Route path="/hotels" component = {Hotels}/>  
-                        <Route path="/logout" component={Logout} />
-                        <Route path = "/" component={Home} />
+                        <Route path="/hotels" element = {<Hotels/>}/>  
+                        <Route path="/logout" element={<Logout/>} />
+                        <Route path = "/" element={<Homepage/>} />
                     </Routes>
                 </div>
             )

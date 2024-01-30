@@ -31,10 +31,11 @@ const loadComments = comments => ({
 })
 
 export const fetchComments = () => dispatch => {
-    // dispatch(commentLoading());
+    dispatch(commentLoading());
     // axios.get(baseUrl + 'comments')
-    // .then(response => response.data)
-    // .then(comments => dispatch(loadComments(comments)));
+    axios.get("https://hotel-booking-5b05b-default-rtdb.firebaseio.com/comments.json")
+    .then(response => response.data)
+    .then(comments => dispatch(loadComments(comments)));
 }
 
 
@@ -55,7 +56,7 @@ const hotelsFailed = (errMess) => ({
 export const fetchHotels = () => dispatch => {
         dispatch(hotelsLoading());
 
-        axios.get("https://react-hotel-booking-8a9d3-default-rtdb.firebaseio.com/hotels.json")
+        axios.get("https://hotel-booking-5b05b-default-rtdb.firebaseio.com/hotels.json")
         .then(response => response.data)
         .then(hotels => dispatch(loadHotels(hotels)))
         .catch(error => dispatch(hotelsFailed(error.message)))
