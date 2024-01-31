@@ -13,9 +13,7 @@ class Homepage extends Component {
                     align="left"
                     button={{ text: "Sign up for free", backgroundColor: "", size: "" }}
                 />
-
                 <HotelSection />
-
             </div>
 
         );
