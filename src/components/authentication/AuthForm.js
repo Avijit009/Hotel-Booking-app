@@ -12,7 +12,7 @@ const mapDispatchToProps = dispatch => {
 }
 class AuthForm extends Component {
     state = {
-        mode: "Sign Up"
+        mode: "Login"
     }
 
     switchModeHandler = () => {
@@ -89,7 +89,6 @@ class AuthForm extends Component {
                                 <input
                                     name="password"
                                     placeholder="Password"
-                                    type='password'
                                     className="form-control"
                                     value={values.password}
                                     onChange={handleChange}
@@ -101,7 +100,6 @@ class AuthForm extends Component {
                                     <input
                                         name="passwordConfirm"
                                         placeholder="Confirm Password"
-                                        type='password'
                                         className="form-control"
                                         value={values.passwordConfirm}
                                         onChange={handleChange}
